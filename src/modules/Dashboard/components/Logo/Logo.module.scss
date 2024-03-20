@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+
+  .logo_wrapper {
+    position: relative;
+    height: 50px;
+    aspect-ratio: 1 / 1;
+
+    .logo_image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .logo_title {
+    color: azure;
+  }
+}
