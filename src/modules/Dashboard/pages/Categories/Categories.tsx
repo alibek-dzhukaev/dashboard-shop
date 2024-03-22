@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Category } from '../../types.ts';
 import { PlusOutlined } from '@ant-design/icons';
 import { useModal } from '../../hooks/useModal.ts';
+import { LoadMore } from '../../components/LoadMore/LoadMore.tsx';
 
 const { Item } = List;
 
@@ -25,16 +26,10 @@ const Categories = () => {
     hideModal();
   };
 
-  const loadMore = (
-    <div>
-      <button>Load more</button>
-    </div>
-  );
-
   return (
-    <div>
-      <BaseList loading={isLoading} loadMore={loadMore} dataSource={dataSource}>
-        {(item) => <Item key={item.categoryId}>{item.categoryName}</Item>}
+    <>
+      <BaseList loading={isLoading} loadMore={<LoadMore />} dataSource={dataSource}>
+        {(category) => <Item key={category.categoryId}>{category.categoryName}</Item>}
       </BaseList>
       <FloatButton icon={<PlusOutlined />} onClick={showModal} />
 
@@ -55,7 +50,7 @@ const Categories = () => {
           </Form.Item>
         </Form>
       </Modal>
-    </div>
+    </>
   );
 };
 
