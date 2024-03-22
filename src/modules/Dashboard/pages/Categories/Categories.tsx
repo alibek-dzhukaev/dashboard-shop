@@ -19,6 +19,7 @@ const Categories = () => {
   const onSubmit = () => {
     const categoryName = form.getFieldValue('categoryName');
     form.resetFields(['categoryName']);
+
     setDataSource((prevState) => [
       ...prevState,
       { categoryId: Date.now().toString(), categoryName },
@@ -28,8 +29,14 @@ const Categories = () => {
 
   return (
     <>
-      <BaseList loading={isLoading} loadMore={<LoadMore />} dataSource={dataSource}>
-        {(category) => <Item key={category.categoryId}>{category.categoryName}</Item>}
+      <BaseList
+        loading={isLoading}
+        loadMore={<LoadMore />}
+        dataSource={dataSource}
+      >
+        {(category) => (
+          <Item key={category.categoryId}>{category.categoryName}</Item>
+        )}
       </BaseList>
       <FloatButton icon={<PlusOutlined />} onClick={showModal} />
 
