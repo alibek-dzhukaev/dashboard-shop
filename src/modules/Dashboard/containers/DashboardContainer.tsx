@@ -8,9 +8,11 @@ import Manufactures from '../pages/Manufactures/Manufactures.tsx';
 import Products from '../pages/Products/Products.tsx';
 import Stores from '../pages/Stores/Stores.tsx';
 import Customers from '../pages/Customers/Customers.tsx';
+import { useLocalStorage } from '../hooks/useLocalStorage.ts';
 
 export const DashboardContainer: FC<DashboardContainerProps> = () => {
   const dashboardService = useDashboardService();
+  const localstorage = useLocalStorage();
 
   const [page, setPage] = useState<Pages>(Pages.CATEGORIES);
 

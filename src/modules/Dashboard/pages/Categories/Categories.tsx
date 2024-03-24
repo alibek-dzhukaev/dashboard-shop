@@ -1,6 +1,6 @@
 import { BaseList } from '../../components/BaseList/BaseList.tsx';
 import { FloatButton, Form, Input, List, Modal } from 'antd';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Category } from '../../types.ts';
 import { PlusOutlined } from '@ant-design/icons';
 import { useModal } from '../../hooks/useModal.ts';
@@ -8,7 +8,9 @@ import { LoadMore } from '../../components/LoadMore/LoadMore.tsx';
 
 const { Item } = List;
 
-const Categories = () => {
+interface Props {}
+
+const Categories: FC<Props> = () => {
   const [form] = Form.useForm();
 
   const isLoading = false;
